@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="brand_primary">#00a5ec</color>
+
+    <color name="primaryLightColor">#65d6ff</color>
+    <color name="brand_primary_light">#65d6ff</color>
+
+    <color name="brand_primary_dark">#0076b9</color>
+    <color name="primaryDarkColor">#0076b9</color>
+
+    <color name="secondaryColor">#c62828</color>
+    <color name="brand_secondary">#c62828</color>
+
+    <color name="secondaryLightColor">#ff5f52</color>
+    <color name="brand_secondary_light">#ff5f52</color>
+
+    <color name="secondaryDarkColor">#8e0000</color>
+    <color name="brand_secondary_dark">#8e0000</color>
+
+    <color name="primaryTextColor">#000000</color>
+    <color name="brand_on_primary_color">#000000</color>
+
+    <color name="secondaryTextColor">#ffffff</color>
+    <color name="brand_on_secondary_color">#ffffff</color>
+
+    <!--surface colors-->
+    <color name="brand_dark_surface">#121212</color>
+    <color name="brand_light_surface">#ffffff</color>
+
+    <!--on surface colors-->
+    <color name="brand_on_dark_surface">#ffffff</color>
+    <color name="brand_on_light_surface">#000000</color>
+
+    <!--background colors-->
+    <color name="brand_dark_background">#121212</color>
+    <color name="brand_light_background">#ffffff</color>
+
+    <!--on background colors-->
+    <color name="brand_on_dark_background">#ffffff</color>
+    <color name="brand_on_light_background">#000000</color>
+
+    <!--on boarding indicator colors-->
+    <color name="activeIndicators">@color/brand_primary_light</color>
+    <color name="inactiveIndicator">#BBBFBF</color>
+
+    <color name="light_background">#ffffff</color>
 </resources>

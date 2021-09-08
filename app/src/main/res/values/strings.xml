@@ -1,3 +1,60 @@
 <resources>
     <string name="app_name">volu</string>
+    <string name="get_started">Get Started</string>
+    <string name="next">Next</string>
+
+    <string-array name="on_boarding_titles">
+        <item>@string/on_boarding_title_1</item>
+        <item>@string/on_boarding_title_2</item>
+        <item>@string/on_boarding_title_3</item>
+        <item>@string/on_boarding_title_4</item>
+    </string-array>
+
+    <string-array name="on_boarding_descriptions">
+        <item>@string/on_boarding_description_1</item>
+        <item>@string/on_boarding_description_2</item>
+        <item>@string/on_boarding_description_3</item>
+        <item>@string/on_boarding_description_4</item>
+    </string-array>
+
+    <string-array name="gender_list">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string name="on_boarding_title_1">Find Volunteering Opportunities</string>
+    <string name="on_boarding_title_2">Choose Your Preference</string>
+    <string name="on_boarding_title_3">Real Time Opportunities</string>
+    <string name="on_boarding_title_4">Awesome Rewards</string>
+
+    <string name="on_boarding_description_1">Get connected to various volunteering opportunities from various organisations</string>
+    <string name="on_boarding_description_2">Set your volunteering preference varying from paid or non-paid opportunities to opportunities from various sectors</string>
+    <string name="on_boarding_description_3">Real time notifications of opportunities matching your chosen volunteering preference</string>
+    <string name="on_boarding_description_4">Receive badges , certificates awards and more from  various opportunities</string>
+    <string name="log_in">Log in</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="request_an_account">Don\'t have an account ?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="sex">Select Sex</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register">Register</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="first_name_input_error">first name required</string>
+    <string name="last_name_input_error">last name required</string>
+    <string name="email_input_error">email address required</string>
+    <string name="invalid_email_input_error">invalid email address</string>
+    <string name="sex_input_error">gender required</string>
+    <string name="phone_input_error">phone number required</string>
+    <string name="password_mismatch_error">passwords are not the same</string>
+    <string name="password_input_error">password required</string>
+    <string name="confirm_password_input_error">confirm password required</string>
+    <string name="inputs_validation_success">success</string>
+    <string name="empty_inputs_error">empty input fields</string>
+
 </resources>

@@ -1,11 +1,90 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--use for light theme-->
+    <style name="Theme.Volu" parent="Base.Theme.Volu" >
+        <!-- colors -->
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorPrimaryVariant">@color/brand_primary_dark</item>
+        <item name="colorSecondary">@color/brand_secondary</item>
+        <item name="colorSecondaryVariant">@color/brand_secondary_dark</item>
+        <item name="colorOnPrimary">@color/brand_on_primary_color</item>
+        <item name="colorOnSecondary">@color/brand_on_secondary_color</item>
+        <item name="colorError">@color/design_default_color_error</item>
+        <item name="colorOnError">#ffffff</item>
+        <item name="colorSurface">@color/brand_light_surface</item>
+        <item name="colorOnSurface">@color/brand_on_light_surface</item>
+        <item name="android:colorBackground">@color/brand_light_background</item>
+        <item name="colorOnBackground">@color/brand_on_light_background</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">?attr/colorSurface</item>
+    </style>
+
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style  name="Base.Theme.Volu" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <!--shape-->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Volu.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Volu.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Volu.LargeComponent</item>
+
+        <!--typography-->
+        <item name="textAppearanceHeadline5">@style/TextAppearance.Volu.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.Volu.Headline6</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.Volu.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.Volu.Body2</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.Volu.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.Volu.Subtitle2</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.Volu.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.Volu.Overline</item>
+
+        <!--components styles i.e toolbarStyle ,cardViewStyle ,tabStyle e.t.c -->
+        <item name="buttonStyle">@style/Widget.Volu.Button</item>
+
+        <!--system -->
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">?android:attr/colorBackground</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
     </style>
+
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">?android:attr/colorBackground</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">?attr/colorSurface</item>
+    </style>
+
+    <style name="Widget.Volu.Button" parent="Widget.MaterialComponents.Button">
+        <item name="shapeAppearance">?shapeAppearanceSmallComponent</item>
+        <item name="backgroundTint">?colorPrimary</item>
+        <item name="fontFamily">@font/raleway_bold</item>
+        <item name="elevation">8dp</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textColor">?colorSurface</item>
+    </style>
+
+    <style name="Widget.Volu.TextInputLayout.FilledBox" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusTopStart">16dp</item>
+        <item name="hintEnabled">false</item>
+        <item name="boxBackgroundColor">@color/light_background</item>
+    </style>
+
+    <style name="Widget.Volu.TextInputLayout.FilledBox.ExposedDropDownMenu" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusTopStart">16dp</item>
+        <item name="hintEnabled">false</item>
+        <item name="boxBackgroundColor">@color/light_background</item>
+    </style>
+
+    <style name="Widget.Volu.TextView" parent="Widget.MaterialComponents.TextView" >
+        <item name="android:textAppearance">?attr/textAppearanceHeadline5</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
 
 </resources>

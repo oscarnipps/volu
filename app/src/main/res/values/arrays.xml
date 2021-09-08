@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="on_boarding_images">
+        <item>@drawable/ic_opportunities</item>
+        <item>@drawable/ic_preferences</item>
+        <item>@drawable/ic_updates</item>
+        <item>@drawable/ic_rewards</item>
+    </array>
+
+</resources>
