@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.volu.R
 import com.example.volu.databinding.FragmentOnBoardingBinding
@@ -28,6 +29,8 @@ class OnBoardingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_on_boarding, container, false)
+
+        navController = findNavController()
 
         viewPager = binding.onBoardingViewPager
 
@@ -97,11 +100,11 @@ class OnBoardingFragment : Fragment() {
 
 
     private fun setUpOnBoardingIndicators() {
-        var indicators: Array<ImageView> = Array(onBoardingAdapter.itemCount) {
+        val indicators: Array<ImageView> = Array(onBoardingAdapter.itemCount) {
             ImageView(requireContext())
         }
 
-        var layoutParams: LinearLayout.LayoutParams = LinearLayout.LayoutParams(
+        val layoutParams: LinearLayout.LayoutParams = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )

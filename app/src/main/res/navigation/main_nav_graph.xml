@@ -34,7 +34,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.volu_individual.ui.authentication.LoginFragment"
+        android:name="com.example.volu.ui.authentication.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
@@ -44,7 +44,7 @@
 
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.volu_individual.ui.authentication.SignUpFragment"
+        android:name="com.example.volu.ui.authentication.SignUpFragment"
         android:label="SignUpFragment"
         tools:layout="@layout/fragment_sign_up">
         <action
