@@ -70,32 +70,7 @@ class NetworkModule {
 
         return Cache(context.cacheDir, cacheSize)
     }
-
-/*
-    @Provides
-    @Singleton
-    @Named("tokenExpiredInterceptor")
-    fun provideTokenExpiredInterceptor(): Interceptor {
-        return TokenExpiredInterceptor()
-    }
-
-    @Provides
-    @Singleton
-    @Named("loggingInterceptor")
-    fun provideLoggingInterceptor(): Interceptor {
-        return HttpLoggingInterceptor().apply {
-            level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
-            else HttpLoggingInterceptor.Level.NONE
-        }
-    }
-
-    @Provides
-    @Singleton
-    @Named("cacheInterceptor")
-    fun provideCacheInterceptor(): Interceptor {
-        return CacheInterceptor()
-    }
-*/
+    
 
     @Singleton
     @Provides

@@ -15,7 +15,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.example.volu.HiltTestRunner"
     }
 
     buildTypes {
@@ -111,6 +111,9 @@ dependencies {
 
 
     //////////////////////////testing////////////////////
+    //mockito
+    testImplementation 'org.mockito:mockito-core:2.22.0'
+
     //Mock Web Server
     testImplementation 'com.squareup.okhttp3:mockwebserver:4.9.1'
 
@@ -143,12 +146,16 @@ dependencies {
 
     // Core library
     androidTestImplementation 'androidx.test:core:1.4.0'
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
 
     // AndroidJUnitRunner and JUnit Rules
     androidTestImplementation 'androidx.test:runner:1.4.0'
     androidTestImplementation 'androidx.test:rules:1.4.0'
 
     testImplementation 'junit:junit:4.13.2'
+    testImplementation 'androidx.test:runner:1.4.0'
+    testImplementation 'androidx.test:rules:1.4.0'
 
     // Assertions
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
