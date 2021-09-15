@@ -27,7 +27,7 @@ class SignUpViewModelTest {
     @Before
     fun setUp() {
         signUpViewModel = SignUpViewModel(authRepo)
-        setUpInputMap()
+        setUpInputs()
     }
 
     @After
@@ -35,7 +35,7 @@ class SignUpViewModelTest {
         inputsMap.clear()
     }
 
-    private fun setUpInputMap() {
+    private fun setUpInputs() {
         inputsMap[R.string.first_name] = "oscar"
 
         inputsMap[R.string.last_name] = "ekesiobi"

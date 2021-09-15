@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.volu.R
 import com.example.volu.databinding.FragmentLoginBinding
 
@@ -25,7 +25,7 @@ class LoginFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
 
         binding.signUp.setOnClickListener{
-            navController.navigate(R.id.navigate_to_sign_up)
+            findNavController().navigate(R.id.navigate_to_sign_up)
         }
 
         binding.password.setOnClickListener{
@@ -46,7 +46,6 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        navController = view.findNavController()
     }
 
     private fun retrieveUserPassword() {
