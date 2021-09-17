@@ -90,7 +90,7 @@ class SignUpFragmentTest {
 
         onView(withId(R.id.register)).perform(scrollTo(), click())
 
-        Mockito.verify(navController).navigate(R.id.navigate_to_main_fragment)
+        Mockito.verify(navController).navigate(R.id.navigate_to_event_category)
     }
 
     @Test

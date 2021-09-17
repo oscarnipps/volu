@@ -49,10 +49,11 @@ class NetworkModule {
 
         builder.addInterceptor(CacheInterceptor())
 
-        val loggingInterceptor = HttpLoggingInterceptor().apply {
-            level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
-            else HttpLoggingInterceptor.Level.NONE
-        }
+        val loggingInterceptor = HttpLoggingInterceptor()
+            .apply {
+                level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
+                else HttpLoggingInterceptor.Level.NONE
+            }
 
         builder.addInterceptor(loggingInterceptor)
 
@@ -70,7 +71,7 @@ class NetworkModule {
 
         return Cache(context.cacheDir, cacheSize)
     }
-    
+
 
     @Singleton
     @Provides

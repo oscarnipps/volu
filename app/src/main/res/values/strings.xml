@@ -56,5 +56,7 @@
     <string name="confirm_password_input_error">confirm password required</string>
     <string name="inputs_validation_success">success</string>
     <string name="empty_inputs_error">empty input fields</string>
+    <string name="select_event_category">select event category</string>
+    <string name="done">done</string>
 
 </resources>

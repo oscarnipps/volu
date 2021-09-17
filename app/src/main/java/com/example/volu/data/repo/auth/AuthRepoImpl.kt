@@ -1,6 +1,6 @@
 package com.example.volu.data.repo.auth
 
-import com.example.volu.data.remote.AuthService
+import com.example.volu.data.remote.httpservice.AuthService
 import javax.inject.Inject
 
 class AuthRepoImpl @Inject constructor(authService: AuthService) : AuthRepo {

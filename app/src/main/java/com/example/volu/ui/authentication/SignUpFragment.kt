@@ -35,7 +35,12 @@ class SignUpFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_up, container, false)
 
         binding.register.setOnClickListener {
-            viewModel.validateInputs(getUserInputs())
+            findNavController().navigate(R.id.navigate_to_event_category)
+            //viewModel.validateInputs(getUserInputs())
+        }
+
+        binding.title.setOnClickListener {
+            findNavController().popBackStack()
         }
 
         return binding.root
@@ -103,7 +108,7 @@ class SignUpFragment : Fragment() {
 
                 //todo : "api call to register user"
 
-                findNavController().navigate(R.id.navigate_to_main_fragment)
+                findNavController().navigate(R.id.navigate_to_event_category)
 
                 return@Observer
             }

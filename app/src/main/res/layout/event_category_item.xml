@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/category_item"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/category_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_volunteers"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.216" />
+
+        <TextView
+            android:id="@+id/category_name"
+            style="@style/Widget.Volu.TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textAlignment="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            tools:text="Agriculture"
+            android:textAppearance="?textAppearanceSubtitle2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/category_image" />
+
+        <ImageView
+            android:id="@+id/selected"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_capture"
+            android:padding="6dp"
+            android:src="@drawable/ic_selected"
+            app:layout_constraintEnd_toEndOf="@+id/category_image"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/category_image"
+            app:layout_constraintTop_toTopOf="@+id/category_image" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

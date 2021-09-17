@@ -6,14 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.example.volu.R
 import com.example.volu.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
 
-    private lateinit var navController: NavController
     private lateinit var binding: FragmentLoginBinding
 
     override fun onCreateView(
@@ -41,7 +39,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun loginUser() {
-
+        findNavController().navigate(R.id.navigate_to_main)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

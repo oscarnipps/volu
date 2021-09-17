@@ -40,6 +40,9 @@
         <action
             android:id="@+id/navigate_to_sign_up"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/navigate_to_main"
+            app:destination="@id/mainFragment" />
     </fragment>
 
     <fragment
@@ -48,14 +51,22 @@
         android:label="SignUpFragment"
         tools:layout="@layout/fragment_sign_up">
         <action
-            android:id="@+id/navigate_to_main_fragment"
-            app:destination="@id/mainFragment" />
+            android:id="@+id/navigate_to_event_category"
+            app:destination="@id/eventCategoryFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.volu.ui.MainFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main"
-        />
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/eventCategoryFragment"
+        android:name="com.example.volu.ui.eventscategory.EventCategoryFragment"
+        android:label="EventCategoryFragment"
+        tools:layout="@layout/fragment_event_category" >
+        <action
+            android:id="@+id/navigate_to_main"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>
