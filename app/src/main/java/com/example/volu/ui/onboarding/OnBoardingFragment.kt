@@ -13,8 +13,13 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.volu.R
+import com.example.volu.data.Constants
+import com.example.volu.data.local.PrefManager
 import com.example.volu.databinding.FragmentOnBoardingBinding
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class OnBoardingFragment : Fragment() {
 
     private lateinit var onBoardingAdapter: OnBoardingAdapter
@@ -22,6 +27,9 @@ class OnBoardingFragment : Fragment() {
     private lateinit var viewPager: ViewPager2
     private lateinit var onBoardingIndicator: LinearLayout
     private lateinit var navController: NavController
+
+    @Inject
+    lateinit var prefManager: PrefManager
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -57,7 +65,10 @@ class OnBoardingFragment : Fragment() {
 
             if (isOnBoardingItemAtLastPosition()) {
                 viewPager.currentItem = viewPager.currentItem + 1
+
             } else {
+                prefManager.saveItem(Constants.HAS_LAUNCHED, true)
+
                 navController.navigate(R.id.navigate_to_login)
             }
 

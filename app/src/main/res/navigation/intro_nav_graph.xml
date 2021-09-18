@@ -17,7 +17,7 @@
             android:id="@+id/action_splashFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
         <action
-            android:id="@+id/action_splashFragment_to_loginFragment"
+            android:id="@+id/navigate_to_login"
             app:destination="@id/loginFragment" />
     </fragment>
 

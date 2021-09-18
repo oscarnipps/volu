@@ -65,7 +65,7 @@ class SignUpFragmentTest {
     }
 
     @Test
-    fun valid_inputs_shows_success_message() {
+    fun valid_inputs_shows_no_error_message() {
         val navController = Mockito.mock(NavController::class.java)
 
         launchFragmentInHiltContainer<SignUpFragment> {

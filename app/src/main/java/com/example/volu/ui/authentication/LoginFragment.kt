@@ -8,11 +8,19 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.volu.R
+import com.example.volu.data.Constants
+import com.example.volu.data.local.PrefManager
 import com.example.volu.databinding.FragmentLoginBinding
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
+
+    @Inject
+    lateinit var prefManager: PrefManager
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,15 +30,15 @@ class LoginFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
 
-        binding.signUp.setOnClickListener{
+        binding.signUp.setOnClickListener {
             findNavController().navigate(R.id.navigate_to_sign_up)
         }
 
-        binding.password.setOnClickListener{
+        binding.password.setOnClickListener {
             retrieveUserPassword()
         }
 
-        binding.login.setOnClickListener{
+        binding.login.setOnClickListener {
             loginUser()
         }
 
@@ -39,6 +47,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun loginUser() {
+        prefManager.saveItem(Constants.IS_LOGGED_IN, true)
         findNavController().navigate(R.id.navigate_to_main)
     }
 

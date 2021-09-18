@@ -4,7 +4,6 @@ import androidx.annotation.StringRes
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.volu.LiveDataTestUtil
 import com.example.volu.R
-import com.example.volu.data.ValidationStatus
 import com.example.volu.data.repo.auth.AuthRepo
 import org.junit.*
 import org.junit.runner.RunWith
@@ -36,40 +35,34 @@ class SignUpViewModelTest {
     }
 
     private fun setUpInputs() {
-        inputsMap[R.string.first_name] = "oscar"
+        inputsMap[R.id.first_name] = "oscar"
 
-        inputsMap[R.string.last_name] = "ekesiobi"
+        inputsMap[R.id.last_name] = "ekesiobi"
 
-        inputsMap[R.string.sex] = "male"
+        inputsMap[R.id.sex] = "male"
 
-        inputsMap[R.string.email] = "oscar@gmail.com"
+        inputsMap[R.id.email] = "oscar@gmail.com"
 
-        inputsMap[R.string.phone_number] = "09090356771"
+        inputsMap[R.id.phone] = "09090356771"
 
-        inputsMap[R.string.password] = "12345"
+        inputsMap[R.id.password] = "12345"
 
-        inputsMap[R.string.confirm_password] = "12345"
+        inputsMap[R.id.confirm_password] = "12345"
     }
 
     @Test
-    fun empty_inputs_show_validation_error_message() {
-        inputsMap.clear()
-
+    fun valid_inputs_show_success_message() {
         signUpViewModel.validateInputs(inputsMap)
 
         val validationInputMap =
             LiveDataTestUtil.getOrAwaitValue(signUpViewModel.validationStatus())
 
-        @StringRes val expectedMessageResId = R.string.empty_inputs_error
-
-        @StringRes val actualMessageResId = validationInputMap!![ValidationStatus.ERROR]
-
-        Assert.assertEquals(expectedMessageResId, actualMessageResId)
+        Assert.assertEquals(validationInputMap?.size,0 )
     }
 
     @Test
     fun invalid_first_name_show_validation_error_message() {
-        inputsMap[R.string.first_name] = ""
+        inputsMap[R.id.first_name] = ""
 
         signUpViewModel.validateInputs(inputsMap)
 
@@ -78,14 +71,16 @@ class SignUpViewModelTest {
 
         @StringRes val expectedMessageResId = R.string.first_name_input_error
 
-        @StringRes val actualMessageResId = validationInputMap!![ValidationStatus.ERROR]
+        @StringRes val actualMessageResId = validationInputMap?.get(R.id.first_name)
+
+        Assert.assertEquals(validationInputMap?.size,1 )
 
         Assert.assertEquals(expectedMessageResId, actualMessageResId)
     }
 
     @Test
     fun invalid_last_name_show_validation_error_message() {
-        inputsMap.replace(R.string.last_name, "")
+        inputsMap.replace(R.id.last_name, "")
 
         signUpViewModel.validateInputs(inputsMap)
 
@@ -94,7 +89,7 @@ class SignUpViewModelTest {
 
         @StringRes val expectedMessageResId = R.string.last_name_input_error
 
-        @StringRes val actualMessageResId = validationInputMap!![ValidationStatus.ERROR]
+        @StringRes val actualMessageResId = validationInputMap!![R.id.last_name]
 
         Assert.assertEquals(expectedMessageResId, actualMessageResId)
     }
@@ -102,7 +97,7 @@ class SignUpViewModelTest {
     @Test
     @Throws(InterruptedException::class)
     fun invalid_sex_input_show_validation_error_message() {
-        inputsMap.replace(R.string.sex, "")
+        inputsMap.replace(R.id.sex, "")
 
         signUpViewModel.validateInputs(inputsMap)
 
@@ -111,7 +106,7 @@ class SignUpViewModelTest {
 
         @StringRes val expectedMessageResId = R.string.sex_input_error
 
-        @StringRes val actualMessageResId = validationInputMap!![ValidationStatus.ERROR]
+        @StringRes val actualMessageResId = validationInputMap!![R.id.sex]
 
         Assert.assertEquals(expectedMessageResId, actualMessageResId)
     }
@@ -119,7 +114,7 @@ class SignUpViewModelTest {
     @Test
     @Throws(InterruptedException::class)
     fun invalid_phone_number_show_validation_error_message() {
-        inputsMap.replace(R.string.phone_number, "")
+        inputsMap.replace(R.id.phone, "")
 
         signUpViewModel.validateInputs(inputsMap)
 
@@ -128,7 +123,7 @@ class SignUpViewModelTest {
 
         @StringRes val expectedMessageResId = R.string.phone_input_error
 
-        @StringRes val actualMessageResId = validationInputMap!![ValidationStatus.ERROR]
+        @StringRes val actualMessageResId = validationInputMap!![R.id.phone]
 
         Assert.assertEquals(expectedMessageResId, actualMessageResId)
     }
@@ -136,7 +131,7 @@ class SignUpViewModelTest {
     @Test
     @Throws(InterruptedException::class)
     fun invalid_email_show_validation_error_message() {
-        inputsMap.replace(R.string.email, "")
+        inputsMap.replace(R.id.email, "")
 
         signUpViewModel.validateInputs(inputsMap)
 
@@ -145,7 +140,7 @@ class SignUpViewModelTest {
 
         @StringRes val expectedMessageResId = R.string.email_input_error
 
-        @StringRes val actualMessageResId = validationInputMap!![ValidationStatus.ERROR]
+        @StringRes val actualMessageResId = validationInputMap!![R.id.email]
 
         Assert.assertEquals(expectedMessageResId, actualMessageResId)
     }
@@ -153,7 +148,7 @@ class SignUpViewModelTest {
     @Test
     @Throws(InterruptedException::class)
     fun invalid_password_show_validation_error_message() {
-        inputsMap.replace(R.string.password, "")
+        inputsMap.replace(R.id.password, "")
 
         signUpViewModel.validateInputs(inputsMap)
 
@@ -162,7 +157,7 @@ class SignUpViewModelTest {
 
         @StringRes val expectedMessageResId = R.string.password_input_error
 
-        @StringRes val actualMessageResId = validationInputMap!![ValidationStatus.ERROR]
+        @StringRes val actualMessageResId = validationInputMap!![R.id.password]
 
         Assert.assertEquals(expectedMessageResId, actualMessageResId)
     }
@@ -170,7 +165,7 @@ class SignUpViewModelTest {
     @Test
     @Throws(InterruptedException::class)
     fun invalid_confirm_password_show_validation_error_message() {
-        inputsMap.replace(R.string.confirm_password, "")
+        inputsMap.replace(R.id.confirm_password, "")
 
         signUpViewModel.validateInputs(inputsMap)
 
@@ -179,7 +174,7 @@ class SignUpViewModelTest {
 
         @StringRes val expectedMessageResId = R.string.confirm_password_input_error
 
-        @StringRes val actualMessageResId = validationInputMap!![ValidationStatus.ERROR]
+        @StringRes val actualMessageResId = validationInputMap!![R.id.confirm_password]
 
         Assert.assertEquals(expectedMessageResId, actualMessageResId)
     }
@@ -188,9 +183,9 @@ class SignUpViewModelTest {
     @Test
     @Throws(InterruptedException::class)
     fun password_mismatch_show_validation_error_message() {
-        inputsMap.replace(R.string.password, "1234")
+        inputsMap.replace(R.id.password, "1234")
 
-        inputsMap.replace(R.string.confirm_password, "4321")
+        inputsMap.replace(R.id.confirm_password, "4321")
 
         signUpViewModel.validateInputs(inputsMap)
 
@@ -199,7 +194,7 @@ class SignUpViewModelTest {
 
         @StringRes val expectedMessageResId = R.string.password_mismatch_error
 
-        @StringRes val actualMessageResId = validationInputMap!![ValidationStatus.ERROR]
+        @StringRes val actualMessageResId = validationInputMap!![R.id.password]
 
         Assert.assertEquals(expectedMessageResId, actualMessageResId)
     }

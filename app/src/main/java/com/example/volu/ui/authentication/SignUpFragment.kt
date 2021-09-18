@@ -15,7 +15,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.volu.R
 import com.example.volu.data.Resource
 import com.example.volu.data.Resource.Status.*
-import com.example.volu.data.ValidationStatus
 import com.example.volu.databinding.FragmentSignUpBinding
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
@@ -35,8 +34,8 @@ class SignUpFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_up, container, false)
 
         binding.register.setOnClickListener {
-            findNavController().navigate(R.id.navigate_to_event_category)
-            //viewModel.validateInputs(getUserInputs())
+            //findNavController().navigate(R.id.navigate_to_event_category)
+            viewModel.validateInputs(getUserInputs())
         }
 
         binding.title.setOnClickListener {
@@ -49,19 +48,19 @@ class SignUpFragment : Fragment() {
     private fun getUserInputs(): Map<Int, Any> {
         val userInputsMap = mutableMapOf<Int, Any>()
 
-        userInputsMap[R.string.first_name] = binding.userInfoLayout.firstName.text.toString().trim()
+        userInputsMap[R.id.first_name] = binding.userInfoLayout.firstName.text.toString().trim()
 
-        userInputsMap[R.string.last_name] = binding.userInfoLayout.lastName.text.toString().trim()
+        userInputsMap[R.id.last_name] = binding.userInfoLayout.lastName.text.toString().trim()
 
-        userInputsMap[R.string.sex] = binding.userInfoLayout.sex.text.toString().trim()
+        userInputsMap[R.id.sex] = binding.userInfoLayout.sex.text.toString().trim()
 
-        userInputsMap[R.string.email] = binding.userInfoLayout.email.text.toString().trim()
+        userInputsMap[R.id.email] = binding.userInfoLayout.email.text.toString().trim()
 
-        userInputsMap[R.string.phone_number] = binding.userInfoLayout.phone.text.toString().trim()
+        userInputsMap[R.id.phone] = binding.userInfoLayout.phone.text.toString().trim()
 
-        userInputsMap[R.string.password] = binding.userInfoLayout.password.text.toString().trim()
+        userInputsMap[R.id.password] = binding.userInfoLayout.password.text.toString().trim()
 
-        userInputsMap[R.string.confirm_password] =
+        userInputsMap[R.id.confirm_password] =
             binding.userInfoLayout.confirmPassword.text.toString().trim()
 
         return userInputsMap
@@ -97,29 +96,50 @@ class SignUpFragment : Fragment() {
         }
     }
 
-    private fun valStatusObserver(): Observer<Map<ValidationStatus, Int>> {
-        return Observer<Map<ValidationStatus, Int>> { result ->
+    private fun valStatusObserver(): Observer<Map<Int, Int>> {
+        return Observer<Map<Int, Int>> { result ->
 
-            if (result.contains(ValidationStatus.SUCCESS)) {
+            Timber.d("validation result size ${result.size}")
 
-                Timber.d("input validation successful")
+            if (result.isNotEmpty()) {
 
-                Toast.makeText(requireContext(), "success", Toast.LENGTH_SHORT).show()
-
-                //todo : "api call to register user"
-
-                findNavController().navigate(R.id.navigate_to_event_category)
+                displayValidationError(result)
 
                 return@Observer
             }
 
-            val messageResId = result[ValidationStatus.ERROR]
+            Timber.d("input validation successful")
 
-            val message = getString(messageResId!!)
+            Toast.makeText(requireContext(), "success", Toast.LENGTH_SHORT).show()
 
-            Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+            //todo : "api call to register user"
 
-            Timber.d("validation not successful with message $message")
+            findNavController().navigate(R.id.navigate_to_event_category)
+
+        }
+    }
+
+    private fun displayValidationError(result: Map<Int, Int>) {
+        result.forEach {
+
+            when (it.key) {
+
+                R.id.first_name -> binding.userInfoLayout.firstName.error = getString(it.value)
+
+                R.id.last_name -> binding.userInfoLayout.lastName.error = getString(it.value)
+
+                R.id.sex -> binding.userInfoLayout.sex.error = getString(it.value)
+
+                R.id.email -> binding.userInfoLayout.email.error = getString(it.value)
+
+                R.id.phone -> binding.userInfoLayout.phone.error = getString(it.value)
+
+                R.id.password -> binding.userInfoLayout.password.error = getString(it.value)
+
+                R.id.confirm_password -> binding.userInfoLayout.confirmPassword.error =
+                    getString(it.value)
+            }
+
         }
     }
 
