@@ -7,17 +7,17 @@
         android:title="events" />
 
     <item
-        android:id="@+id/searchFragment"
+        android:id="@+id/exploreEventFragment"
         android:icon="@drawable/ic_search"
         android:title="explore" />
 
     <item
-        android:id="@+id/profileFragment"
+        android:id="@+id/rewardsFragment"
         android:icon="@drawable/ic_badge"
         android:title="rewards" />
 
     <item
-        android:id="@+id/profilesFragment"
+        android:id="@+id/userProfileFragment"
         android:icon="@drawable/ic_profile"
         android:title="profile" />
 

@@ -2,71 +2,31 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_nav_graph.xml"
-    app:startDestination="@id/splashFragment">
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/eventListFragment">
 
     <fragment
-        android:id="@+id/splashFragment"
-        android:name="com.example.volu.ui.onboarding.SplashFragment"
-        android:label="SplashFragment"
-        tools:layout="@layout/fragment_splash">
-        <action
-            android:id="@+id/navigate_to_on_boarding"
-            app:destination="@id/onBoardingFragment" />
-        <action
-            android:id="@+id/action_splashFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-        <action
-            android:id="@+id/action_splashFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
+        android:id="@+id/eventListFragment"
+        android:name="com.example.volu.ui.events.EventListFragment"
+        tools:layout="@layout/fragment_event_list"
+        android:label="EventListFragment" />
 
     <fragment
-        android:id="@+id/onBoardingFragment"
-        android:name="com.example.volu.ui.onboarding.OnBoardingFragment"
-        android:label="OnBoardingFragment"
-        tools:layout="@layout/fragment_on_boarding">
-        <action
-            android:id="@+id/navigate_to_login"
-            app:destination="@id/loginFragment" />
-    </fragment>
-
+        android:id="@+id/exploreEventFragment"
+        android:name="com.example.volu.ui.explore.ExploreEventFragment"
+        tools:layout="@layout/fragment_explore_event"
+        android:label="ExploreEventFragment" />
 
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.example.volu.ui.authentication.LoginFragment"
-        android:label="LoginFragment"
-        tools:layout="@layout/fragment_login">
-        <action
-            android:id="@+id/navigate_to_sign_up"
-            app:destination="@id/signUpFragment" />
-        <action
-            android:id="@+id/navigate_to_main"
-            app:destination="@id/mainFragment" />
-    </fragment>
+        android:id="@+id/rewardsFragment"
+        android:name="com.example.volu.ui.rewards.RewardsFragment"
+        tools:layout="@layout/fragment_rewards"
+        android:label="RewardsFragment" />
 
     <fragment
-        android:id="@+id/signUpFragment"
-        android:name="com.example.volu.ui.authentication.SignUpFragment"
-        android:label="SignUpFragment"
-        tools:layout="@layout/fragment_sign_up">
-        <action
-            android:id="@+id/navigate_to_event_category"
-            app:destination="@id/eventCategoryFragment" />
-    </fragment>
+        android:id="@+id/userProfileFragment"
+        android:name="com.example.volu.ui.user.UserProfileFragment"
+        tools:layout="@layout/fragment_user_profile"
+        android:label="UserProfileFragment" />
 
-    <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.example.volu.ui.MainFragment"
-        android:label="MainFragment"
-        tools:layout="@layout/fragment_main" />
-    <fragment
-        android:id="@+id/eventCategoryFragment"
-        android:name="com.example.volu.ui.eventscategory.EventCategoryFragment"
-        android:label="EventCategoryFragment"
-        tools:layout="@layout/fragment_event_category" >
-        <action
-            android:id="@+id/navigate_to_main"
-            app:destination="@id/mainFragment" />
-    </fragment>
 </navigation>

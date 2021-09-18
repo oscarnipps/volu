@@ -49,7 +49,7 @@ class LoginFragmentTest {
         )
 
         launchFragmentInHiltContainer<LoginFragment> {
-            navController.setGraph(R.navigation.main_nav_graph)
+            navController.setGraph(R.navigation.intro_nav_graph)
 
             navController.setCurrentDestination(R.id.loginFragment)
 

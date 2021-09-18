@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.details.SearchDetailsFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title_tag"
+                style="@style/Widget.Volu.TextView"
+                android:text="Explore"
+                />
+
+            <TextView
+                android:visibility="visible"
+                android:id="@+id/empty_view"
+                android:gravity="center"
+                android:textAppearance="?textAppearanceBody1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="search for various volunteering events"
+                />
+
+           <!-- <androidx.recyclerview.widget.RecyclerView
+                android:background="#F9F9F9"
+                android:layout_margin="16dp"
+                android:id="@+id/item_recycler_view"
+                tools:listitem="@layout/event_list_item"
+                tools:itemCount="3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>-->
+
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

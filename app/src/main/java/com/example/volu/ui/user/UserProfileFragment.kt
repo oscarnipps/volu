@@ -1,4 +1,4 @@
-package com.example.volu.ui.events
+package com.example.volu.ui.user
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,13 +7,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.volu.R
-import com.example.volu.databinding.FragmentEventListBinding
-import dagger.hilt.android.AndroidEntryPoint
+import com.example.volu.databinding.FragmentUserProfileBinding
 
-@AndroidEntryPoint
-class EventListFragment : Fragment() {
+class UserProfileFragment :  Fragment() {
 
-    private lateinit var binding : FragmentEventListBinding
+    private lateinit var binding : FragmentUserProfileBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,9 +20,10 @@ class EventListFragment : Fragment() {
     ): View {
 
         binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_event_list, container, false)
+            DataBindingUtil.inflate(inflater, R.layout.fragment_user_profile, container, false)
 
         return binding.root
     }
+
 
 }

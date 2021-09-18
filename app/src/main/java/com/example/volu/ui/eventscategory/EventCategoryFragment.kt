@@ -13,11 +13,11 @@ import com.example.volu.R
 import com.example.volu.data.local.EventCategory
 import com.example.volu.databinding.FragmentEventCategoryBinding
 
-class EventCategoryFragment : Fragment() ,EventCategoryAdapter.EventCategoryInterface {
+class EventCategoryFragment : Fragment(), EventCategoryAdapter.EventCategoryInterface {
 
-    private lateinit var binding : FragmentEventCategoryBinding
-    private lateinit var eventCategoryAdapter : EventCategoryAdapter
-    private lateinit var recyclerView : RecyclerView
+    private lateinit var binding: FragmentEventCategoryBinding
+    private lateinit var eventCategoryAdapter: EventCategoryAdapter
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,11 +25,12 @@ class EventCategoryFragment : Fragment() ,EventCategoryAdapter.EventCategoryInte
         savedInstanceState: Bundle?
     ): View {
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_event_category, container, false)
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_event_category, container, false)
 
         setUpRecyclerView()
 
-        binding.done.setOnClickListener{
+        binding.done.setOnClickListener {
             findNavController().navigate(R.id.navigate_to_main)
         }
 
@@ -42,9 +43,9 @@ class EventCategoryFragment : Fragment() ,EventCategoryAdapter.EventCategoryInte
         recyclerView = binding.categoryRecyclerView
 
         recyclerView.apply {
-            recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
+            layoutManager = GridLayoutManager(requireContext(), 2)
 
-            recyclerView.adapter = eventCategoryAdapter
+            adapter = eventCategoryAdapter
         }
     }
 
@@ -55,17 +56,16 @@ class EventCategoryFragment : Fragment() ,EventCategoryAdapter.EventCategoryInte
     fun getItems(): List<EventCategory> {
         val items = mutableListOf<EventCategory>()
 
-        items.add(EventCategory(1,"Agriculture",""))
-        items.add(EventCategory(2,"Technology",""))
-        items.add(EventCategory(3,"Education",""))
-        items.add(EventCategory(4,"Legal",""))
-        items.add(EventCategory(5,"Arts & Culture",""))
-        items.add(EventCategory(6,"Health",""))
-        items.add(EventCategory(7,"International Relations & Development",""))
+        items.add(EventCategory(1, "Agriculture", ""))
+        items.add(EventCategory(2, "Technology", ""))
+        items.add(EventCategory(3, "Education", ""))
+        items.add(EventCategory(4, "Legal", ""))
+        items.add(EventCategory(5, "Arts & Culture", ""))
+        items.add(EventCategory(6, "Health", ""))
+        items.add(EventCategory(7, "International Relations & Development", ""))
 
         return items
     }
-
 
 
 }
