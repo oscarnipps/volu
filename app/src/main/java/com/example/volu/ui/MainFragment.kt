@@ -14,10 +14,15 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_main,container,false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_main, container, false)
 
-        val nestedNavHostFragment = childFragmentManager.findFragmentById(R.id.main_nav_container) as NavHostFragment
+        val nestedNavHostFragment =
+            childFragmentManager.findFragmentById(R.id.main_nav_container) as NavHostFragment
 
         val navController = nestedNavHostFragment.navController
 
@@ -25,6 +30,17 @@ class MainFragment : Fragment() {
 
         bottomNavigationView.setupWithNavController(navController)
 
+        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+
+            //todo: show bottom nav only for the top level destinations
+            if (destination.id == R.id.eventDetailsFragment) {
+                bottomNavigationView.visibility = View.GONE
+            } else {
+                bottomNavigationView.visibility = View.VISIBLE
+            }
+
+        }
+        
         return view
     }
 

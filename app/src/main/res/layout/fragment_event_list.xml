@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".ui.details.SearchDetailsFragment">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,24 +19,63 @@
                 android:text="Events"
                 />
 
-            <TextView
-                android:visibility="visible"
-                android:id="@+id/empty_view"
-                android:gravity="center"
-                android:textAppearance="?textAppearanceBody1"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/filter_section"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="no current event for today"
-                />
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <!-- <androidx.recyclerview.widget.RecyclerView
-                 android:background="#F9F9F9"
-                 android:layout_margin="16dp"
+                <TextView
+                    android:id="@+id/event_category_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:textAllCaps="true"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    app:drawableTint="@color/brand_primary"
+                    app:layout_constraintBottom_toBottomOf="@+id/event_filter"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/event_filter"
+                    android:text="Today" />
+
+                <TextView
+                    android:id="@+id/event_filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:drawableStart="@drawable/ic_sort"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    app:drawableTint="@color/brand_primary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="Sort By" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+             <TextView
+                 android:visibility="visible"
+                 android:id="@+id/empty_view"
+                 android:gravity="center"
+                 android:textAppearance="?textAppearanceBody1"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:text="no current events for today"
+                 />
+
+             <androidx.recyclerview.widget.RecyclerView
                  android:id="@+id/item_recycler_view"
                  tools:listitem="@layout/event_list_item"
                  tools:itemCount="3"
                  android:layout_width="match_parent"
-                 android:layout_height="match_parent"/>-->
+                 android:layout_height="match_parent"/>
 
         </LinearLayout>
 

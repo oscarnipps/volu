@@ -5,6 +5,11 @@
         <item name="cornerSize">8dp</item>
     </style>
 
+    <style name="ActionButtonShapeAppearance" parent="ShapeAppearance.MaterialComponents.SmallComponent" >
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
     <style name="ShapeAppearance.Volu.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent" >
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">8dp</item>

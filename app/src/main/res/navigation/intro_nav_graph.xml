@@ -14,7 +14,7 @@
             android:id="@+id/navigate_to_on_boarding"
             app:destination="@id/onBoardingFragment" />
         <action
-            android:id="@+id/action_splashFragment_to_mainFragment"
+            android:id="@+id/navigate_to_main"
             app:destination="@id/mainFragment" />
         <action
             android:id="@+id/navigate_to_login"
@@ -64,8 +64,6 @@
             android:id="@+id/navigate_to_main"
             app:destination="@id/mainFragment" />
     </fragment>
-
-    <!--<include app:graph="@navigation/main_nav_graph" />-->
 
     <fragment
         android:id="@+id/mainFragment"

@@ -24,23 +24,29 @@
     <style name="TextAppearance.Volu.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
         <item name="fontFamily">@font/raleway_medium</item>
         <item name="android:textColor">?attr/colorOnSurface</item>
-        <item name="android:textStyle">normal</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.Volu.EventDetail" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/raleway_medium</item>
+        <item name="android:textColor">#7C7575</item>
     </style>
 
     <style name="TextAppearance.Volu.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
         <item name="fontFamily">@font/raleway_medium</item>
         <item name="android:textColor">?attr/colorOnSurface</item>
-        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextAppearance.Volu.Caption" parent="TextAppearance.MaterialComponents.Caption">
         <item name="fontFamily">@font/raleway_medium</item>
-        <item name="android:textColor">?attr/colorOnSurface</item>
-        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">#6E7E8F</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextAppearance.Volu.Overline" parent="TextAppearance.MaterialComponents.Overline">
-
+        <item name="fontFamily">@font/raleway_medium</item>
+        <item name="android:textColor">#7C7575</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
 </resources>

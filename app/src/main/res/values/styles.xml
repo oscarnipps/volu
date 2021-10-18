@@ -39,6 +39,7 @@
 
         <!--components styles i.e toolbarStyle ,cardViewStyle ,tabStyle e.t.c -->
         <item name="buttonStyle">@style/Widget.Volu.Button</item>
+        <item name="cardViewStyle">@style/Widget.CountrySearch.CardView</item>
 
         <!--system -->
         <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
@@ -63,6 +64,13 @@
         <item name="android:textColor">?colorSurface</item>
     </style>
 
+    <style name="Widget.Volu.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="shapeAppearance">?shapeAppearanceSmallComponent</item>
+        <item name="fontFamily">@font/raleway_bold</item>
+        <item name="elevation">8dp</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
     <style name="Widget.Volu.TextInputLayout.FilledBox" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="boxCornerRadiusTopEnd">16dp</item>
         <item name="boxCornerRadiusTopStart">16dp</item>
@@ -70,11 +78,27 @@
         <item name="boxBackgroundColor">@color/light_background</item>
     </style>
 
+    <style name="Widget.Volu.TextInputLayout.Outlined" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">@dimen/search_field_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/search_field_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/search_field_radius</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/search_field_radius</item>
+        <item name="hintEnabled">false</item>
+
+    </style>
+
     <style name="Widget.Volu.TextInputLayout.FilledBox.ExposedDropDownMenu" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
-        <item name="boxCornerRadiusTopEnd">16dp</item>
-        <item name="boxCornerRadiusTopStart">16dp</item>
         <item name="hintEnabled">false</item>
         <item name="boxBackgroundColor">@color/light_background</item>
+    </style>
+
+
+    <style name="Widget.Volu.TextInputLayout.OutlinedBox.ExposedDropDownMenu" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="hintEnabled">false</item>
     </style>
 
     <style name="Widget.Volu.TextView" parent="Widget.MaterialComponents.TextView" >
@@ -84,6 +108,13 @@
         <item name="android:layout_marginBottom">16dp</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Widget.CountrySearch.CardView" parent="Widget.MaterialComponents.CardView" >
+        <item name="shapeAppearance">@style/ShapeAppearance.Volu.MediumComponent</item>
+        <item name="cardBackgroundColor">?attr/colorSurface</item>
+        <item name="cardElevation">8dp</item>
+        <item name="android:layout_margin">16dp</item>
     </style>
 
 

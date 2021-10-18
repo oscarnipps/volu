@@ -44,4 +44,5 @@
     <color name="inactiveIndicator">#BBBFBF</color>
 
     <color name="light_background">#ffffff</color>
+    <color name="event_detail_section_divider">#BBBFBF</color>
 </resources>

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".ui.details.SearchDetailsFragment">
 
         <LinearLayout
@@ -15,30 +14,59 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/title_tag"
-                style="@style/Widget.Volu.TextView"
-                android:text="Explore"
-                />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/title_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="32dp"
+                    android:text="@string/search"
+                    android:textAppearance="@style/TextAppearance.Volu.Headline5"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/event_filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:drawableStart="@drawable/ic_filter"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:text="@string/filters"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    app:drawableTint="@color/brand_primary"
+                    app:layout_constraintBottom_toBottomOf="@+id/title_tag"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/title_tag" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <TextView
-                android:visibility="visible"
+                android:visibility="gone"
                 android:id="@+id/empty_view"
                 android:gravity="center"
                 android:textAppearance="?textAppearanceBody1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="search for various volunteering events"
+                android:text="unable to retrieve events now ..."
                 />
 
-           <!-- <androidx.recyclerview.widget.RecyclerView
-                android:background="#F9F9F9"
-                android:layout_margin="16dp"
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/item_recycler_view"
                 tools:listitem="@layout/event_list_item"
                 tools:itemCount="3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>-->
+                android:layout_height="match_parent"/>
+
+
 
         </LinearLayout>
 

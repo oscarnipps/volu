@@ -9,7 +9,7 @@
     <item
         android:id="@+id/exploreEventFragment"
         android:icon="@drawable/ic_search"
-        android:title="explore" />
+        android:title="search" />
 
     <item
         android:id="@+id/rewardsFragment"
