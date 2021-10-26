@@ -1,10 +1,10 @@
-package com.example.volu.data.local
+package com.example.volu.data.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
-data class EventCategory(
+@Entity(tableName = "EventCategory")
+data class EventCategoryEntity(
 
     val id: Int,
 

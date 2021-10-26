@@ -36,7 +36,11 @@
         android:id="@+id/userProfileFragment"
         android:name="com.example.volu.ui.user.UserProfileFragment"
         android:label="UserProfileFragment"
-        tools:layout="@layout/fragment_user_profile" />
+        tools:layout="@layout/fragment_user_profile" >
+        <action
+            android:id="@+id/navigate_to_settings"
+            app:destination="@id/settingsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/eventDetailsFragment"
@@ -49,5 +53,11 @@
         android:name="com.example.volu.ui.explore.EventFilterFragment"
         android:label="EventFilterFragment"
         tools:layout="@layout/layout_event_filter" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.volu.ui.settings.SettingsFragment"
+        tools:layout="@layout/fragment_settings"
+        android:label="SettingsFragment" />
 
 </navigation>

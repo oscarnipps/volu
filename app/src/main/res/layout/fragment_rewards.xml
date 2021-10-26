@@ -28,7 +28,7 @@
                 android:textAppearance="?textAppearanceBody1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="view rewards from completed events"
+                android:text="no awards received yet"
                 />
 
 

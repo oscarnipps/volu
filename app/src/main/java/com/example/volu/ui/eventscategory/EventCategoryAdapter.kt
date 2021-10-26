@@ -8,13 +8,13 @@ import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.volu.R
-import com.example.volu.data.local.EventCategory
+import com.example.volu.data.database.entities.EventCategoryEntity
 import com.example.volu.databinding.EventCategoryItemBinding
 import timber.log.Timber
 
-class EventCategoryAdapter(var categories : List<EventCategory>) : RecyclerView.Adapter<EventCategoryAdapter.EventCategoryViewHolder>() {
+class EventCategoryAdapter(var categoryEntities : List<EventCategoryEntity>) : RecyclerView.Adapter<EventCategoryAdapter.EventCategoryViewHolder>() {
 
-    private var selectedItems = mutableSetOf<EventCategory>()
+    private var selectedItems = mutableSetOf<EventCategoryEntity>()
 
     interface EventCategoryInterface {
         fun onCategoryItemClicked()
@@ -26,17 +26,17 @@ class EventCategoryAdapter(var categories : List<EventCategory>) : RecyclerView.
     }
 
     override fun onBindViewHolder(holder: EventCategoryViewHolder, position: Int) {
-         val currentItem = categories[position]
+         val currentItem = categoryEntities[position]
          holder.bind(currentItem)
     }
 
     override fun getItemCount(): Int {
-        return categories.size
+        return categoryEntities.size
     }
 
-    fun setItems(eventCategoryItems: List<EventCategory>) {
-        categories = eventCategoryItems
-        Timber.d("category items ${eventCategoryItems.size}")
+    fun setItems(eventCategoryEntityItems: List<EventCategoryEntity>) {
+        categoryEntities = eventCategoryEntityItems
+        Timber.d("category items ${eventCategoryEntityItems.size}")
         notifyDataSetChanged()
     }
 
@@ -65,7 +65,7 @@ class EventCategoryAdapter(var categories : List<EventCategory>) : RecyclerView.
             binding.selected.visibility = View.VISIBLE
         }
 
-        fun bind(currentItem: EventCategory) {
+        fun bind(currentItem: EventCategoryEntity) {
             binding.categoryName.text = currentItem.categoryName
         }
 

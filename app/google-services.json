@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "903149255416",
+    "project_id": "volu-individual",
+    "storage_bucket": "volu-individual.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903149255416:android:cf37403c1879276906990d",
+        "android_client_info": {
+          "package_name": "com.example.volu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "903149255416-7rs5vpn1eed25ncubcpp4pk3s6rckhp8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-evCVs0MRgfEgLdlVTtx3_eICk6GtvKc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "903149255416-7rs5vpn1eed25ncubcpp4pk3s6rckhp8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

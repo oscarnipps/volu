@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.volu.R
-import com.example.volu.data.local.EventCategory
+import com.example.volu.data.database.entities.EventCategoryEntity
 import com.example.volu.databinding.FragmentEventCategoryBinding
 
 class EventCategoryFragment : Fragment(), EventCategoryAdapter.EventCategoryInterface {
@@ -53,16 +53,16 @@ class EventCategoryFragment : Fragment(), EventCategoryAdapter.EventCategoryInte
 
     }
 
-    fun getItems(): List<EventCategory> {
-        val items = mutableListOf<EventCategory>()
+    fun getItems(): List<EventCategoryEntity> {
+        val items = mutableListOf<EventCategoryEntity>()
 
-        items.add(EventCategory(1, "Agriculture", ""))
-        items.add(EventCategory(2, "Technology", ""))
-        items.add(EventCategory(3, "Education", ""))
-        items.add(EventCategory(4, "Legal", ""))
-        items.add(EventCategory(5, "Arts & Culture", ""))
-        items.add(EventCategory(6, "Health", ""))
-        items.add(EventCategory(7, "International Relations & Development", ""))
+        items.add(EventCategoryEntity(1, "Agriculture", ""))
+        items.add(EventCategoryEntity(2, "Technology", ""))
+        items.add(EventCategoryEntity(3, "Education", ""))
+        items.add(EventCategoryEntity(4, "Legal", ""))
+        items.add(EventCategoryEntity(5, "Arts & Culture", ""))
+        items.add(EventCategoryEntity(6, "Health", ""))
+        items.add(EventCategoryEntity(7, "International Relations & Development", ""))
 
         return items
     }

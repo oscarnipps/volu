@@ -1,7 +1,7 @@
 package com.example.volu.di
 
 import com.example.volu.data.dao.AuthDao
-import com.example.volu.data.local.AppDatabase
+import com.example.volu.data.database.AppDatabase
 import com.example.volu.data.remote.httpservice.AuthService
 import com.example.volu.data.repo.auth.AuthRepo
 import com.example.volu.data.repo.auth.AuthRepoImpl

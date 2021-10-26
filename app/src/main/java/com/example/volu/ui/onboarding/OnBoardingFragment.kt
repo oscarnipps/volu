@@ -14,7 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.volu.R
 import com.example.volu.data.Constants
-import com.example.volu.data.local.PrefManager
+import com.example.volu.data.database.PrefManager
 import com.example.volu.databinding.FragmentOnBoardingBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

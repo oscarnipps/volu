@@ -11,7 +11,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.example.volu.R
 import com.example.volu.data.Constants
-import com.example.volu.data.local.PrefManager
+import com.example.volu.data.database.PrefManager
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 import javax.inject.Inject

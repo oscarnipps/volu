@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.volu.R
 import com.example.volu.data.Constants
-import com.example.volu.data.local.PrefManager
+import com.example.volu.data.database.PrefManager
 import com.example.volu.databinding.FragmentLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject

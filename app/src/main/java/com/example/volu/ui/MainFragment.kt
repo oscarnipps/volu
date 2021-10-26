@@ -32,16 +32,34 @@ class MainFragment : Fragment() {
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
 
-            //todo: show bottom nav only for the top level destinations
-            if (destination.id == R.id.eventDetailsFragment) {
-                bottomNavigationView.visibility = View.GONE
-            } else {
+            if (isTopLevelDestination(destination.id)) {
                 bottomNavigationView.visibility = View.VISIBLE
+                return@addOnDestinationChangedListener
             }
 
+            bottomNavigationView.visibility = View.GONE
         }
         
         return view
+    }
+
+    private fun isTopLevelDestination(destination : Int): Boolean {
+        val topLevelDestinations = getTopLevelDestinations()
+
+        if (topLevelDestinations.contains(destination)) {
+            return true
+        }
+
+        return false
+    }
+
+    private fun getTopLevelDestinations () : Set<Int>{
+        return setOf(
+            R.id.eventListFragment,
+            R.id.exploreEventFragment,
+            R.id.rewardsFragment,
+            R.id.userProfileFragment
+        )
     }
 
 }

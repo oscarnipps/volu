@@ -1,11 +1,11 @@
-package com.example.volu.data.local
+package com.example.volu.data.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity
-data class User(
+@Entity(tableName = "User")
+data class UserEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
 
