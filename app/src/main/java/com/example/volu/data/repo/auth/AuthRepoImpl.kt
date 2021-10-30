@@ -1,17 +1,24 @@
 package com.example.volu.data.repo.auth
 
+import com.example.volu.data.database.PrefManager
 import com.example.volu.data.remote.httpservice.AuthService
+import com.example.volu.data.remote.request.UserLoginRequest
+import com.example.volu.data.remote.response.UserLoginResponse
+import io.reactivex.Single
+import retrofit2.Response
 import javax.inject.Inject
 
-class AuthRepoImpl @Inject constructor(authService: AuthService) : AuthRepo {
+class AuthRepoImpl @Inject constructor(
+    private val authService: AuthService,
+    private val prefManager: PrefManager
+) : AuthRepo {
 
-    private var _authService = authService
 
-    override fun loginUser() {
-        _authService.login()
+    override fun loginUser(userLoginDetails: UserLoginRequest): Single<Response<UserLoginResponse>> {
+        return authService.login(userLoginDetails)
     }
 
     override fun registerUser() {
-        _authService.register()
+        authService.register()
     }
 }

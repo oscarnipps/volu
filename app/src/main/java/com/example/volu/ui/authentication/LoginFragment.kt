@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.volu.R
-import com.example.volu.data.Constants
 import com.example.volu.data.database.PrefManager
 import com.example.volu.databinding.FragmentLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,6 +21,8 @@ class LoginFragment : Fragment() {
 
     @Inject
     lateinit var prefManager: PrefManager
+
+    private val loginViewModel: LoginViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,8 +49,10 @@ class LoginFragment : Fragment() {
     }
 
     private fun loginUser() {
-        prefManager.saveItem(Constants.IS_LOGGED_IN, true)
-        findNavController().navigate(R.id.navigate_to_main)
+        /*prefManager.saveItem(Constants.IS_LOGGED_IN, true)
+        findNavController().navigate(R.id.navigate_to_main)*/
+
+        //loginViewModel.loginUser(userLoginDetails)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

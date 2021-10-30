@@ -36,7 +36,7 @@ class SplashFragment : Fragment() {
 
         val navController = view.findNavController()
 
-        Timber.d("first time launch ${prefManager.getBooleanItem("has_launched")}")
+        Timber.d("first time launch ${prefManager.getBooleanItem(Constants.HAS_LAUNCHED)}")
 
         //todo: refactor to use theme approach for the splash screen
         Handler(Looper.getMainLooper()).postDelayed(
