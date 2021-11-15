@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/eventListFragment"
-        android:name="com.example.volu.ui.events.EventListFragment"
+        android:name="com.app.volu.ui.events.EventListFragment"
         android:label="EventListFragment"
         tools:layout="@layout/fragment_event_list">
         <action
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/exploreEventFragment"
-        android:name="com.example.volu.ui.explore.ExploreEventFragment"
+        android:name="com.app.volu.ui.explore.ExploreEventFragment"
         android:label="ExploreEventFragment"
         tools:layout="@layout/fragment_explore_event" >
         <action
@@ -28,13 +28,13 @@
 
     <fragment
         android:id="@+id/rewardsFragment"
-        android:name="com.example.volu.ui.rewards.RewardsFragment"
+        android:name="com.app.volu.ui.rewards.RewardsFragment"
         android:label="RewardsFragment"
         tools:layout="@layout/fragment_rewards" />
 
     <fragment
         android:id="@+id/userProfileFragment"
-        android:name="com.example.volu.ui.user.UserProfileFragment"
+        android:name="com.app.volu.ui.user.UserProfileFragment"
         android:label="UserProfileFragment"
         tools:layout="@layout/fragment_user_profile" >
         <action
@@ -44,19 +44,19 @@
 
     <fragment
         android:id="@+id/eventDetailsFragment"
-        android:name="com.example.volu.ui.events.EventDetailsFragment"
+        android:name="com.app.volu.ui.events.EventDetailsFragment"
         android:label="EventDetailsFragment"
         tools:layout="@layout/fragment_event_detail" />
 
     <dialog
         android:id="@+id/eventFilterFragment"
-        android:name="com.example.volu.ui.explore.EventFilterFragment"
+        android:name="com.app.volu.ui.explore.EventFilterFragment"
         android:label="EventFilterFragment"
         tools:layout="@layout/layout_event_filter" />
 
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.volu.ui.settings.SettingsFragment"
+        android:name="com.app.volu.ui.settings.SettingsFragment"
         tools:layout="@layout/fragment_settings"
         android:label="SettingsFragment" />
 

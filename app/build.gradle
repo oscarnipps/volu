@@ -11,14 +11,15 @@ android {
     buildToolsVersion "30.0.0"
 
     defaultConfig {
-        applicationId "com.example.volu"
+        applicationId "com.app.volu"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "com.example.volu.HiltTestRunner"
+        testInstrumentationRunner "com.app.volu.HiltTestRunner"
     }
+
 
     buildTypes {
         release {
