@@ -20,6 +20,7 @@ object Constants{
 
     const val SHARED_PREFERENCE_KEY = "volu-preference"
     const val IS_LOGGED_IN = "is_logged_in"
+    const val ACCESS_TOKEN = "access_token"
     const val HAS_LAUNCHED = "has_launched"
 
 }

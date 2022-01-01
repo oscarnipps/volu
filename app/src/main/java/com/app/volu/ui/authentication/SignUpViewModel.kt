@@ -7,28 +7,37 @@ import com.app.volu.R
 import com.app.volu.data.Constants
 import com.app.volu.data.Resource
 import com.app.volu.data.SingleLiveEvent
+import com.app.volu.data.remote.request.UserRegistrationRequest
+import com.app.volu.data.remote.response.Data
+import com.app.volu.data.remote.response.UserRegistrationResponse
 import com.app.volu.data.repo.auth.AuthRepo
+import com.google.gson.GsonBuilder
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
+import retrofit2.Response
 import timber.log.Timber
 import java.util.regex.Pattern
 import javax.inject.Inject
 
 @HiltViewModel
-class SignUpViewModel @Inject constructor(authRepo: AuthRepo) : ViewModel() {
+class SignUpViewModel @Inject constructor(private val authRepo: AuthRepo) : ViewModel() {
 
-    private val _authRepo = authRepo
-    private val _registrationStatus: MutableLiveData<Resource<String>> = MutableLiveData()
+    private val _registrationStatus: MutableLiveData<Resource<UserRegistrationResponse>> = MutableLiveData()
     private val _validationResults: SingleLiveEvent<Map<Int, Int>> = SingleLiveEvent()
     private val _validationResultMap = mutableMapOf<Int, Int>()
+    private var _compositeDisposable = CompositeDisposable()
 
 
-    fun registrationStatus(): LiveData<Resource<String>> {
+    fun registrationStatus(): LiveData<Resource<UserRegistrationResponse>> {
         return this._registrationStatus
     }
 
     fun validationStatus(): SingleLiveEvent<Map<Int, Int>> {
         return this._validationResults
     }
+
 
     fun validateInputs(inputsMap: Map<Int, Any>) {
 
@@ -50,6 +59,7 @@ class SignUpViewModel @Inject constructor(authRepo: AuthRepo) : ViewModel() {
 
         setValidationStatus()
     }
+
 
     private fun setValidationStatus() {
         Timber.d("validation result size ${_validationResultMap.size}")
@@ -136,5 +146,55 @@ class SignUpViewModel @Inject constructor(authRepo: AuthRepo) : ViewModel() {
         if (lastName.isEmpty()) {
             _validationResultMap[R.id.last_name] = R.string.last_name_input_error
         }
+    }
+
+    fun registerUser(userRegistrationDetails: UserRegistrationRequest) {
+        _registrationStatus.value = Resource.loading()
+
+        _compositeDisposable.add(
+            authRepo.registerUser(userRegistrationDetails)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    {registrationResponse -> handleUserRegistrationResponse(registrationResponse)},
+                    {error -> handleUserRegistrationError(error)}
+                )
+        )
+    }
+
+    private fun handleUserRegistrationError(error: Throwable) {
+        //todo: check for the type of exception and use user-friendly message
+
+        Timber.d("registration error : ${error.localizedMessage}")
+
+        _registrationStatus.value = Resource.error(error.localizedMessage)
+    }
+
+    private fun handleUserRegistrationResponse(response: Response<Data<UserRegistrationResponse>>) {
+        if (response.isSuccessful) {
+            val data = response.body()?.data as UserRegistrationResponse
+
+            _registrationStatus.value = Resource.success(data)
+
+            return
+        }
+
+        val gson = GsonBuilder().create()
+
+        val data = gson.fromJson(response.errorBody()?.charStream(), Data::class.java)
+
+        Timber.d("registration error message : ${data.message}")
+
+        Timber.d("registration error status : ${data.status}")
+
+        _registrationStatus.value = Resource.error(data.message)
+
+    }
+
+
+    override fun onCleared() {
+        super.onCleared()
+        _compositeDisposable.clear()
+
     }
 }

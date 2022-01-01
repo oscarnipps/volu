@@ -6,18 +6,23 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.volu.R
-import com.app.volu.data.database.entities.EventCategoryEntity
+import com.app.volu.data.Resource
 import com.app.volu.databinding.FragmentEventCategoryBinding
+import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
-class EventCategoryFragment : Fragment(), EventCategoryAdapter.EventCategoryInterface {
+@AndroidEntryPoint
+class EventCategoryFragment : Fragment() {
 
     private lateinit var binding: FragmentEventCategoryBinding
     private lateinit var eventCategoryAdapter: EventCategoryAdapter
     private lateinit var recyclerView: RecyclerView
+    private val eventCategoryViewModel: EventCategoryViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,41 +36,53 @@ class EventCategoryFragment : Fragment(), EventCategoryAdapter.EventCategoryInte
         setUpRecyclerView()
 
         binding.done.setOnClickListener {
+            val categoryItems = eventCategoryAdapter.getSelectedCategorySet()
+
+            Timber.d("selected categories : $categoryItems")
+
+            //todo : make api request to edit user event category preference
             findNavController().navigate(R.id.navigate_to_main)
         }
+
+
 
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        eventCategoryViewModel.getEventCategoriesFromApi()
+
+        eventCategoryViewModel.getEventCategoriesResult().observe(viewLifecycleOwner, { result ->
+            when (result.status) {
+
+                Resource.Status.LOADING -> {
+                    //todo: show progress bar
+                }
+
+                Resource.Status.ERROR -> {
+                    //todo: show error view with message and retry button
+                }
+
+                Resource.Status.SUCCESS -> {
+                    val categories = result.data ?: emptyList()
+                    eventCategoryAdapter.setItems(categories)
+                }
+            }
+        })
+
+    }
+
     private fun setUpRecyclerView() {
-        eventCategoryAdapter = EventCategoryAdapter(getItems())
+        eventCategoryAdapter = EventCategoryAdapter()
 
         recyclerView = binding.categoryRecyclerView
 
         recyclerView.apply {
             layoutManager = GridLayoutManager(requireContext(), 2)
-
             adapter = eventCategoryAdapter
         }
     }
-
-    override fun onCategoryItemClicked() {
-
-    }
-
-    fun getItems(): List<EventCategoryEntity> {
-        val items = mutableListOf<EventCategoryEntity>()
-
-        items.add(EventCategoryEntity(1, "Agriculture", ""))
-        items.add(EventCategoryEntity(2, "Technology", ""))
-        items.add(EventCategoryEntity(3, "Education", ""))
-        items.add(EventCategoryEntity(4, "Legal", ""))
-        items.add(EventCategoryEntity(5, "Arts & Culture", ""))
-        items.add(EventCategoryEntity(6, "Health", ""))
-        items.add(EventCategoryEntity(7, "International Relations & Development", ""))
-
-        return items
-    }
-
 
 }

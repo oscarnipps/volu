@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.OnBackPressedDispatcher
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -28,6 +30,13 @@ class EventListFragment : Fragment() {
         binding.eventFilter.setOnClickListener{
             findNavController().navigate(R.id.navigate_to_event_details)
         }
+
+        OnBackPressedDispatcher().addCallback(object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+               requireActivity().finish()
+            }
+
+        })
 
         return binding.root
     }

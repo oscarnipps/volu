@@ -13,16 +13,25 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.app.volu.R
+import com.app.volu.data.Constants
 import com.app.volu.data.Resource
 import com.app.volu.data.Resource.Status.*
+import com.app.volu.data.database.PrefManager
+import com.app.volu.data.remote.request.UserRegistrationRequest
+import com.app.volu.data.remote.response.UserRegistrationResponse
 import com.app.volu.databinding.FragmentSignUpBinding
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SignUpFragment : Fragment() {
 
     private lateinit var binding: FragmentSignUpBinding
+
+    @Inject
+    lateinit var prefManager: PrefManager
+
     private val viewModel: SignUpViewModel by viewModels()
 
     override fun onCreateView(
@@ -33,16 +42,22 @@ class SignUpFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_up, container, false)
 
-        binding.register.setOnClickListener {
+        binding.registerButton.setOnClickListener {
             //findNavController().navigate(R.id.navigate_to_event_category)
             viewModel.validateInputs(getUserInputs())
         }
+
+        binding.profileImage.setOnClickListener { showSelectProfileImageDialog() }
 
         binding.title.setOnClickListener {
             findNavController().popBackStack()
         }
 
         return binding.root
+    }
+
+    private fun showSelectProfileImageDialog() {
+        //todo: show dialog
     }
 
     private fun getUserInputs(): Map<Int, Any> {
@@ -77,20 +92,41 @@ class SignUpFragment : Fragment() {
 
     }
 
-    private fun registrationStatusObserver(): Observer<Resource<String>> {
-        return Observer<Resource<String>> { result ->
+    private fun registrationStatusObserver(): Observer<Resource<UserRegistrationResponse>> {
+        return Observer<Resource<UserRegistrationResponse>> { result ->
 
             when (result.status) {
                 LOADING -> {
-                    //todo: show loading progress bar
+                    //todo: show loading dialog with progress bar
+                    binding.loginProgress.visibility = View.VISIBLE
+                    binding.imageContainer.visibility = View.GONE
+                    binding.registerButton.visibility = View.GONE
+                    binding.userInfoLayout.inputContainers.visibility = View.GONE
+
                 }
 
                 ERROR -> {
                     //todo: hide progress bar and show error dialog
+                    binding.loginProgress.visibility = View.GONE
+                    binding.imageContainer.visibility = View.VISIBLE
+                    binding.registerButton.visibility = View.VISIBLE
+                    binding.userInfoLayout.inputContainers.visibility = View.VISIBLE
                 }
 
                 SUCCESS -> {
-                    //todo: show success dialog
+                    binding.loginProgress.visibility = View.GONE
+                    binding.imageContainer.visibility = View.VISIBLE
+                    binding.registerButton.visibility = View.VISIBLE
+                    binding.userInfoLayout.inputContainers.visibility = View.VISIBLE
+
+                    Toast.makeText(requireContext(),getString(R.string.sign_up_success),Toast.LENGTH_SHORT).show()
+
+                    prefManager.saveItem(Constants.IS_LOGGED_IN, true)
+
+                    prefManager.saveItem(Constants.ACCESS_TOKEN, result.data?.accessToken)
+
+                    findNavController().navigate(R.id.navigate_to_event_category)
+
                 }
             }
         }
@@ -112,11 +148,25 @@ class SignUpFragment : Fragment() {
 
             Toast.makeText(requireContext(), "success", Toast.LENGTH_SHORT).show()
 
-            //todo : "api call to register user"
-
-            findNavController().navigate(R.id.navigate_to_event_category)
-
+            viewModel.registerUser(getUserRegistrationDetails())
         }
+    }
+
+    private fun getUserRegistrationDetails(): UserRegistrationRequest {
+
+        return UserRegistrationRequest(
+            binding.userInfoLayout.email.text.toString().trim(),
+
+            binding.userInfoLayout.firstName.text.toString().trim(),
+
+            binding.userInfoLayout.lastName.text.toString().trim(),
+
+            binding.userInfoLayout.password.text.toString().trim(),
+
+            binding.userInfoLayout.phone.text.toString().trim(),
+
+            binding.userInfoLayout.sex.text.toString().trim()
+        )
     }
 
     private fun displayValidationError(result: Map<Int, Int>) {

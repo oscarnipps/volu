@@ -4,8 +4,8 @@ class Resource<T>(val data: T?, val status: Status, val message: String?) {
 
     companion object {
 
-        fun <T> loading(data: T?): Resource<T> {
-            return Resource(data, Status.LOADING, null)
+        fun <T> loading(): Resource<T> {
+            return Resource(null, Status.LOADING, null)
         }
 
         fun <T> error(message: String?): Resource<T> {

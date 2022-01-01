@@ -159,6 +159,23 @@
             app:layout_constraintStart_toEndOf="@+id/materialTextView"
             app:layout_constraintTop_toTopOf="@+id/materialTextView" />
 
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/login_progress"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/login_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="imageView,materialTextView,textView,remember_me,password_container,login,email_container,sign_up,forgot_password" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

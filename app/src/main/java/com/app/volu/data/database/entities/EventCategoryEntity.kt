@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "EventCategory")
 data class EventCategoryEntity(
 
-    val id: Int,
+    val id: String,
 
     @PrimaryKey(autoGenerate = false)
     val categoryName: String,

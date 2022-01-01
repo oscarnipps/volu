@@ -38,6 +38,7 @@
             app:layout_constraintTop_toBottomOf="@+id/category_image" />
 
         <ImageView
+            android:visibility="gone"
             android:id="@+id/selected"
             android:layout_width="32dp"
             android:layout_height="32dp"

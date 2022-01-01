@@ -3,7 +3,10 @@ package com.app.volu.ui.authentication
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -53,7 +56,7 @@ class LoginFragment : Fragment() {
         binding.login.setOnClickListener {
             email = binding.email.text.toString().trim()
 
-            password = binding.email.text.toString().trim()
+            password = binding.password.text.toString().trim()
 
             loginViewModel.validateLoginInputs(email, password)
         }
@@ -69,7 +72,7 @@ class LoginFragment : Fragment() {
                 return@Observer
             }
 
-            //todo : show error message dialog
+            Toast.makeText(requireContext(), "invalid inputs", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -78,23 +81,33 @@ class LoginFragment : Fragment() {
 
             when (result.status) {
                 LOADING -> {
-                    //todo: show progress bar
+                    binding.loginProgress.visibility = VISIBLE
+                    binding.loginGroup.visibility = GONE
                 }
 
                 ERROR -> {
-                    //todo: show dialog with error message
+                    binding.loginProgress.visibility = GONE
+
+                    binding.loginGroup.visibility = VISIBLE
+
+                    Toast.makeText(requireContext(), result.message, Toast.LENGTH_SHORT).show()
                 }
 
                 SUCCESS -> {
+                    binding.loginProgress.visibility = GONE
+
+                    binding.loginGroup.visibility = VISIBLE
+
                     prefManager.saveItem(Constants.IS_LOGGED_IN, true)
+
+                    prefManager.saveItem(Constants.ACCESS_TOKEN, result.data?.accessToken)
+
                     findNavController().navigate(R.id.navigate_to_main)
                 }
-
             }
         }
     }
 
 
-    private fun retrieveUserPassword() {
-    }
+    private fun retrieveUserPassword() {}
 }

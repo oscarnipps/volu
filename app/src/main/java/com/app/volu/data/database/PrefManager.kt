@@ -12,7 +12,7 @@ class PrefManager @Inject constructor(@ApplicationContext val context: Context) 
         context.getSharedPreferences(Constants.SHARED_PREFERENCE_KEY, MODE_PRIVATE)
 
 
-    fun saveItem(key: String, value: String) {
+    fun saveItem(key: String, value: String?) {
         val editor = sharedPreference.edit()
 
         editor.putString(key, value)

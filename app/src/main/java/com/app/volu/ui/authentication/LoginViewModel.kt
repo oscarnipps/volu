@@ -10,6 +10,7 @@ import com.app.volu.data.remote.request.UserLoginRequest
 import com.app.volu.data.remote.response.Data
 import com.app.volu.data.remote.response.UserLoginResponse
 import com.app.volu.data.repo.auth.AuthRepo
+import com.google.gson.GsonBuilder
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -64,7 +65,7 @@ class LoginViewModel @Inject constructor(
     }
 
     fun loginUser(userLoginDetails: UserLoginRequest) {
-        _loggedInUser.value = Resource.loading(null)
+        _loggedInUser.value = Resource.loading()
 
         _compositeDisposable.add(
             authRepo
@@ -87,20 +88,24 @@ class LoginViewModel @Inject constructor(
     }
 
     private fun handleResponse(response: Response<Data<UserLoginResponse>>) {
-        if (response.code() == 200) {
+        if (response.isSuccessful) {
+            val userLoginResponse = response.body()?.data as UserLoginResponse
 
-            if (response.body() != null) {
+            _loggedInUser.value = Resource.success(userLoginResponse)
 
-                val userLoginResponse = response.body()?.data as UserLoginResponse
+            return
 
-                _loggedInUser.value = Resource.success(userLoginResponse)
-
-                return
-            }
         }
 
-        _loggedInUser.value = Resource.error(response.message())
+        val gson = GsonBuilder().create()
 
+        val data = gson.fromJson(response.errorBody()?.charStream(), Data::class.java)
+
+        Timber.d("login error message : ${data.message}")
+
+        Timber.d("login error status : ${data.status}")
+
+        _loggedInUser.value = Resource.error(data.message)
     }
 
     fun loggedInUser(): LiveData<Resource<UserLoginResponse>> {

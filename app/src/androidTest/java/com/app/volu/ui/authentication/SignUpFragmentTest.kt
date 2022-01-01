@@ -8,7 +8,6 @@ import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.RootMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.app.volu.R
 import com.app.volu.launchFragmentInHiltContainer
 import dagger.hilt.android.testing.HiltAndroidRule
@@ -17,12 +16,10 @@ import org.hamcrest.Matchers.equalTo
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 
 @HiltAndroidTest
-@RunWith(AndroidJUnit4::class)
 class SignUpFragmentTest {
 
     @get: Rule

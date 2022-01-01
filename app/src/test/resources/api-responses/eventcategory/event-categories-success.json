@@ -1,0 +1,40 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "_id": "614e2696bf4ab337ba61b7dc",
+      "category_name": "health",
+      "image_url": ""
+    },
+    {
+      "_id": "614e2696bf4ab337ba61b7db",
+      "category_name": "arts & culture",
+      "image_url": ""
+    },
+    {
+      "_id": "614e2696bf4ab337ba61b7da",
+      "category_name": "legal",
+      "image_url": ""
+    },
+    {
+      "_id": "614e2696bf4ab337ba61b7d8",
+      "category_name": "technology",
+      "image_url": ""
+    },
+    {
+      "_id": "614e2696bf4ab337ba61b7dd",
+      "category_name": "international relations & development",
+      "image_url": ""
+    },
+    {
+      "_id": "614e2696bf4ab337ba61b7d7",
+      "category_name": "agriculture",
+      "image_url": ""
+    },
+    {
+      "_id": "614e2696bf4ab337ba61b7d9",
+      "category_name": "education",
+      "image_url": ""
+    }
+  ]
+}

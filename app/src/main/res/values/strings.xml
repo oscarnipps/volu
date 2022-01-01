@@ -73,5 +73,6 @@
     <string name="event_category">Event Category</string>
     <string name="profile">Profile</string>
     <string name="event_categories">Event Categories</string>
+    <string name="sign_up_success">registration success</string>
 
 </resources>

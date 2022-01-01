@@ -42,6 +42,8 @@ class LoginFragmentTest {
         onView(withId(R.id.login)).perform(click())
     }
 
+    //data.remote.httpservice
+
     @Test
     fun navigate_to_sign_up_view() {
         val navController = TestNavHostController(

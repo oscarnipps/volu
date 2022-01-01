@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_splash">
         <action
             android:id="@+id/navigate_to_on_boarding"
-            app:destination="@id/onBoardingFragment" />
+            app:destination="@id/onBoardingFragment"
+            app:launchSingleTop="false"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/navigate_to_main"
             app:destination="@id/mainFragment" />
