@@ -21,7 +21,6 @@
                 android:text="@string/sign_up" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                tools:visibility="gone"
                 android:id="@+id/image_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -31,7 +30,7 @@
                     android:layout_width="110dp"
                     android:layout_height="110dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_volunteers"
+                    android:src="@drawable/user"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
@@ -56,13 +55,11 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <include
-                tools:visibility="gone"
                 android:id="@+id/user_info_layout"
                 layout="@layout/user_registration_info" />
 
 
             <com.google.android.material.button.MaterialButton
-                tools:visibility="gone"
                 android:id="@+id/register_button"
                 style="?buttonStyle"
                 android:layout_width="match_parent"
@@ -78,6 +75,7 @@
                 app:shapeAppearance="?shapeAppearanceSmallComponent" />
 
             <ProgressBar
+                android:visibility="gone"
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/login_progress"
                 android:layout_width="150dp"
