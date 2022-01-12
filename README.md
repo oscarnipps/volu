@@ -33,14 +33,26 @@ This app uses MVVM (Model View View-Model) architecture with a single activity a
 
 # App Screens UI 🎨
 
-|           |           |  |   |  |
-| ------------- |:-------------:        | -----:    | -----:         | -----:        |
-|  ![alt text](https://github.com/oscarnipps/timer-app/blob/58fa4a143516eeac149ff7cede184135ee4c4eb8/timers_start_active.png "")      |  ![alt text](https://github.com/oscarnipps/timer-app/blob/58fa4a143516eeac149ff7cede184135ee4c4eb8/timerz_list.png "")            |  ![alt text](https://github.com/oscarnipps/timer-app/blob/58fa4a143516eeac149ff7cede184135ee4c4eb8/timers_settings.png "")     |  ![alt text](https://github.com/oscarnipps/timer-app/blob/58fa4a143516eeac149ff7cede184135ee4c4eb8/timerz_active.png "")       |  ![alt text](https://github.com/oscarnipps/timer-app/blob/58fa4a143516eeac149ff7cede184135ee4c4eb8/timerz_create.png "")       |
+|            |   |        |         |         |         |
+|:-------------:| -----:| ------------- | ------------- | ------------- | ------------- |
+|  ![alt text](https://github.com/oscarnipps/volu/blob/c097f9503c0a83c9ec4eccd41020cce0b79f5ca8/volu_splash.png "")  | ![alt text](https://github.com/oscarnipps/volu/blob/c097f9503c0a83c9ec4eccd41020cce0b79f5ca8/volu_login.png "") |  ![alt text](https://github.com/oscarnipps/volu/blob/c097f9503c0a83c9ec4eccd41020cce0b79f5ca8/volu_sign_up.png "")    | ![alt text](https://github.com/oscarnipps/volu/blob/c097f9503c0a83c9ec4eccd41020cce0b79f5ca8/volu_profile.png "")       |  ![alt text](https://github.com/oscarnipps/volu/blob/c097f9503c0a83c9ec4eccd41020cce0b79f5ca8/volu_event_details.png "")     | ![alt text](https://github.com/oscarnipps/volu/blob/c097f9503c0a83c9ec4eccd41020cce0b79f5ca8/event_list_with_item.png "")    |
 
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+# License 🔖
 
+    Apache 2.0 License
+
+
+    Copyright 2021 Ekesiobi Oscar
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
