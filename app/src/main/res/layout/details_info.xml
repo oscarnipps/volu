@@ -27,8 +27,8 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/raleway_medium"
-            android:text="@string/apply"
-            android:textColor="@color/brand_on_dark_background"
+            tools:text="@string/apply"
+            tools:textColor="@color/brand_on_dark_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearance="@style/ActionButtonShapeAppearance" />
@@ -39,8 +39,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
-            android:text="Arts Fest 2.0"
-            android:textAppearance="?attr/textAppearanceHeadline5"
+            tools:text="Arts Fest 2.0"
+            tools:textAppearance="?attr/textAppearanceHeadline5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/close" />
 
@@ -51,15 +51,15 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:drawableStart="@drawable/ic_location"
+            app:drawableStartCompat="@drawable/ic_location"
             android:drawablePadding="8dp"
             android:gravity="center_vertical"
-            android:textAppearance="@style/TextAppearance.Volu.EventDetail"
+            tools:textAppearance="@style/TextAppearance.Volu.EventDetail"
             app:drawableTint="@color/brand_on_light_surface"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/event_name"
-            android:text="16 koelosho street , lagos" />
+            tools:text="16 koelosho street , lagos" />
 
         <TextView
             android:id="@+id/event_date"
@@ -67,14 +67,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:drawableStart="@drawable/ic_events"
+            app:drawableStartCompat="@drawable/ic_events"
             android:drawablePadding="8dp"
             android:gravity="center_vertical"
-            android:textAppearance="@style/TextAppearance.Volu.EventDetail"
+            tools:textAppearance="@style/TextAppearance.Volu.EventDetail"
             app:drawableTint="@color/brand_on_light_surface"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/event_location"
-            android:text="july 23 - july 26" />
+            tools:text="july 23 - july 26" />
 
         <TextView
             android:id="@+id/event_time"
@@ -82,14 +82,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:drawableStart="@drawable/ic_time"
+            app:drawableStartCompat="@drawable/ic_time"
             android:drawablePadding="8dp"
             android:gravity="center_vertical"
-            android:textAppearance="@style/TextAppearance.Volu.EventDetail"
+            tools:textAppearance="@style/TextAppearance.Volu.EventDetail"
             app:drawableTint="@color/brand_on_light_surface"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/event_date"
-            android:text="9am - 12pm" />
+            tools:text="9am - 12pm" />
 
         <TextView
             android:id="@+id/event_volunteer_status"
@@ -99,17 +99,17 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            android:drawableStart="@drawable/ic_profile"
+            app:drawableStartCompat="@drawable/ic_profile"
             android:drawablePadding="8dp"
             android:gravity="center_vertical"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
+            tools:textAppearance="?attr/textAppearanceSubtitle2"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/event_time"
-            android:text="verifying" />
+            tools:text="verifying" />
 
         <View
             android:layout_width="match_parent"
@@ -138,11 +138,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:drawableStart="@drawable/ic_organization"
+            app:drawableStartCompat="@drawable/ic_organization"
             app:drawableTint="@color/brand_on_light_surface"
             android:drawablePadding="8dp"
-            android:text="@string/organization"
-            android:textAppearance="@style/TextAppearance.Volu.EventDetail"
+            tools:text="@string/organization"
+            tools:textAppearance="@style/TextAppearance.Volu.EventDetail"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -154,12 +154,12 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="48dp"
             android:gravity="center_vertical"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
+            tools:textAppearance="?attr/textAppearanceSubtitle2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.52"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/organization_info"
-            android:text="Techno Drita" />
+            tools:text="Techno Drita" />
 
         <View
             android:layout_width="match_parent"
@@ -182,11 +182,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:drawableStart="@drawable/ic_category"
+            app:drawableStartCompat="@drawable/ic_category"
             app:drawableTint="@color/brand_on_light_surface"
             android:drawablePadding="8dp"
-            android:text="@string/category"
-            android:textAppearance="@style/TextAppearance.Volu.EventDetail"
+            tools:text="@string/category"
+            tools:textAppearance="@style/TextAppearance.Volu.EventDetail"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -198,12 +198,12 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="48dp"
             android:gravity="center_vertical"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
+            tools:textAppearance="?attr/textAppearanceSubtitle2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.52"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
-            android:text="Health" />
+            tools:text="Health" />
 
         <View
             android:layout_width="match_parent"
@@ -226,11 +226,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:drawableStart="@drawable/ic_paid_event"
+            app:drawableStartCompat="@drawable/ic_paid_event"
             app:drawableTint="@color/brand_on_light_surface"
             android:drawablePadding="8dp"
-            android:text="@string/type"
-            android:textAppearance="@style/TextAppearance.Volu.EventDetail"
+            tools:text="@string/type"
+            tools:textAppearance="@style/TextAppearance.Volu.EventDetail"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -242,12 +242,12 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="48dp"
             android:gravity="center_vertical"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
+            tools:textAppearance="?attr/textAppearanceSubtitle2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.52"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/event_type_tag"
-            android:text="Paid ( N20,000 )" />
+            tools:text="Paid ( N20,000 )" />
 
         <View
             android:layout_width="match_parent"
@@ -270,11 +270,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:drawableStart="@drawable/ic_event_status"
+            app:drawableStartCompat="@drawable/ic_event_status"
             app:drawableTint="@color/brand_on_light_surface"
             android:drawablePadding="8dp"
-            android:text="@string/event_status"
-            android:textAppearance="@style/TextAppearance.Volu.EventDetail"
+            tools:text="@string/event_status"
+            tools:textAppearance="@style/TextAppearance.Volu.EventDetail"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -286,12 +286,12 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="48dp"
             android:gravity="center_vertical"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
+            tools:textAppearance="?attr/textAppearanceSubtitle2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.52"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/event_status_tag"
-            android:text="not-started" />
+            tools:text="not-started" />
 
         <View
             android:layout_width="match_parent"
@@ -314,11 +314,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:drawableStart="@drawable/ic_volunteer_status"
+            app:drawableStartCompat="@drawable/ic_volunteer_status"
             app:drawableTint="@color/brand_on_light_surface"
             android:drawablePadding="8dp"
-            android:text="@string/volunteer_status"
-            android:textAppearance="@style/TextAppearance.Volu.EventDetail"
+            tools:text="@string/volunteer_status"
+            tools:textAppearance="@style/TextAppearance.Volu.EventDetail"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -330,12 +330,12 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="48dp"
             android:gravity="center_vertical"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
+            tools:textAppearance="?attr/textAppearanceSubtitle2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.52"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/volunteer_status_tag"
-            android:text="verifying" />
+            tools:text="verifying" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
