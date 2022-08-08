@@ -35,7 +35,7 @@ This app uses MVVM (Model View View-Model) architecture with a single activity a
 
 |            |   |        |         |         |         |
 |:-------------:| -----:| ------------- | ------------- | ------------- | ------------- |
-|  ![alt text](https://github.com/oscarnipps/volu/blob/c097f9503c0a83c9ec4eccd41020cce0b79f5ca8/volu_splash.png "")  | ![alt text](https://github.com/oscarnipps/volu/blob/c097f9503c0a83c9ec4eccd41020cce0b79f5ca8/volu_login.png "") |  ![alt text](https://github.com/oscarnipps/volu/blob/c097f9503c0a83c9ec4eccd41020cce0b79f5ca8/volu_sign_up.png "")    | ![alt text](https://github.com/oscarnipps/volu/blob/c097f9503c0a83c9ec4eccd41020cce0b79f5ca8/volu_profile.png "")       |  ![alt text](https://github.com/oscarnipps/volu/blob/c097f9503c0a83c9ec4eccd41020cce0b79f5ca8/volu_event_details.png "")     | ![alt text](https://github.com/oscarnipps/volu/blob/c097f9503c0a83c9ec4eccd41020cce0b79f5ca8/event_list_with_item.png "")    |
+|  ![alt text](https://github.com/oscarnipps/volu/blob/c097f9503c0a83c9ec4eccd41020cce0b79f5ca8/volu_splash.png "")  | ![alt text](https://github.com/oscarnipps/volu/blob/c097f9503c0a83c9ec4eccd41020cce0b79f5ca8/volu_login.png "") | ![alt text](https://github.com/oscarnipps/volu/blob/c097f9503c0a83c9ec4eccd41020cce0b79f5ca8/volu_profile.png "")       |  ![alt text](https://github.com/oscarnipps/volu/blob/c097f9503c0a83c9ec4eccd41020cce0b79f5ca8/volu_event_details.png "")     | ![alt text](https://github.com/oscarnipps/volu/blob/c097f9503c0a83c9ec4eccd41020cce0b79f5ca8/event_list_with_item.png "")    |
 
 
 # License 🔖
